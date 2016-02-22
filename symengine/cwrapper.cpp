@@ -15,6 +15,7 @@
 #include <symengine/visitor.h>
 #include <symengine/printer.h>
 
+
 using SymEngine::Basic;
 using SymEngine::RCP;
 using SymEngine::zero;
@@ -67,7 +68,7 @@ void basic_free_heap(basic_struct *s)
     delete s;
 }
 
-void basic_const_set(basic s, char* c)
+void basic_const_set(basic s, const char* c)
 {
     s->m = SymEngine::constant(std::string(c));
 }
@@ -260,6 +261,21 @@ void basic_expand(basic s, const basic a)
 {
     s->m = SymEngine::expand(a->m);
 }
+
+void basic_cot(basic s, const basic a)
+ {
+     s->m = SymEngine::cot(a->m);
+ }
+
+ void basic_csc(basic s, const basic a)
+ {
+     s->m = SymEngine::csc(a->m);
+ }
+ 
+void basic_sec(basic s, const basic a)
+ {
+     s->m = SymEngine::sec(a->m);
+ }
 
 char* basic_str(const basic s)
 {
